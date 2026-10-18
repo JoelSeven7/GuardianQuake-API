@@ -166,9 +166,9 @@ export DB_NAME=guardianquake_db
 export JWT_SECRET_KEY=cambia-esto-en-produccion
 
 # 6. Levantar el servidor
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-# API disponible en http://localhost:8000
-# Documentacion en http://localhost:8000/docs
+uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
+# API disponible en http://localhost:8001
+# Documentacion en http://localhost:8001/docs
 ```
 
 ### Ejemplo de flujo completo (curl)
@@ -180,12 +180,12 @@ curl -X POST http://localhost:8000/api/usuarios/registro \
   -d '{"correo":"demo@guardianquake.com","password":"secreto123"}'
 
 # Login (nota: es un formulario, no JSON)
-curl -X POST http://localhost:8000/api/usuarios/login \
+curl -X POST http://localhost:8001/api/usuarios/login \
   -d "username=demo@guardianquake.com&password=secreto123"
 # -> {"access_token": "...", "token_type": "bearer"}
 
 # Usar el token en cualquier endpoint protegido
-curl http://localhost:8000/api/usuarios/me \
+curl http://localhost:8001/api/usuarios/me \
   -H "Authorization: Bearer <access_token>"
 ```
 
